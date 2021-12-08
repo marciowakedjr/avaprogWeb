@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parse/3.3.1/parse.min.js" integrity="sha512-pD+Z+o1kNqJJWBHNIJdCVW6aLD0OLGiQq+lQwacqW9+xWT7f1nH11EFSgfITSZL+QQ4AhsBA0koTKWXyKrR7mw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>currículo.com</title>
+    <link rel="stylesheet" type="text/css" href="css.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header class="p-3 mb-3 border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center  ">
+            </div>
+        </div>
+        </div>
+    </header>
+    <div class="div">
+        <div class="flex">
+            <div>
+                <img id="img" width="329px" height="346pix" src="img/perfilFoto.png" class="rounded-circle">
+            </div>
+            <div>
+                <h1 class="nome">
+                    Márcio <br> Waked Jr.
+                </h1>
+                <p id="p1">Pós-Graduado em Digital Strategy </p>
+                <div>
+                    <h2 class="Objetivo">Objetivo Principal</h2>
+                    <p class="p">Busco desenvolvimento profissional nas áreas de relacionamento com clientes, marketing e administrativa, colaborando com os resultados e crescimento da empresa de forma ética e sustentável.</p>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <br>
+                <h2 class="accordion-header" id="headingOne"><br> EXPERIÊNCIA PROFISSIONAL
+                    </button>
+                </h2>
+
+                <div class="accordion-body">
+                    <div>
+                        <strong>CONSULTORIA E TREINAMENTO</strong>
+                        <p>M.XAVIER | 2017 - 2018</p>
+                        - Trabalhando diretamente com o professor, consultor e coach, Maurício Xavier, nas visitas aos clientes. Levantando informações para a construção de seus projetos estratégicos. Ajudando nos treinamentos efetuados pela empresa.<br>
+                    </div>
+                    <div class="item">
+                        <strong>VENDAS</strong>
+                        <p>BIO FAIR TRADE | 2013 - 2018</p>
+                        - Projetos de comercialização de produtos artesanais em parceria com o SEBRAE em Pernambuco, no Rio Grande do Norte e no Rio de Janeiro.. <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <br>
+            <h2 class="accordion-header" id="headingTwo"><br> HISTÓRICO ACADÊMICO
+                </button>
+            </h2>
+
+            <div class="flex divSpacing" class="accordion-body">
+                <div>
+                    <strong>UNIVERSIDADE CATÓLICA</strong>
+                    <p>Turma de 2014</p>
+                    - Administração <br>
+                </div>
+                <div class="strong">
+                    <strong>UNIVERSIDADE CATÓLICA</strong>
+                    <p>Turma de 2019.2 | Representante</p>
+                    - Pós-Graduação em Digital Strategy <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <br>
+        <h2 class="accordion-header" id="headingThree"><br> PRINCIPAIS INTERESSES
+            </button>
+        </h2>
+
+        <div class="accordion-body">
+            <div>
+                - Jogos Digitais <br> - Produção de Filmes <br> - Séries <br> - Música<br> - História <br> - Arquitetura
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="accordion-item">
+        <br>
+        <h2 class="accordion-header" id="headingFour"><br> CERTIFICADOS | CONTATOS
+            </button>
+        </h2>
+
+        <br>
+        <div class="flex divSpacing" class="accordion-body"><br>
+            <div>
+                <strong>CERTIFICADOS</strong> <br>
+                <p class="p" id="exp"></p>
+                <pre class="p" id="tarefas"></pre>
+                <br></p>
+            </div>
+            <div class="strong">
+                <strong>Dados de Contato</strong> <br>-Casa: (81) 3241-3603 <br> - Celular: (81) 9996-1001 <br> - E-mail: marciowakedjr@gmail.com <br> - Endereço: Rua Rui Calaça, 85, Espinheiro, Recife-PE
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div>
+
+        </script>
+
+
+        <script>
+            Parse.serverURL = 'https://parseapi.back4app.com'; // This is your Server URL
+            // Remember to inform BOTH the Back4App Application ID AND the JavaScript KEY
+            Parse.initialize(
+                'ClRbg5gtsSYSvUFx4LEsAesoI09x1o5KYYWAaQEr', // This is your Application ID
+                'hMvxo0Cfsg7Vdx4J5clYWtcQlnvKoAUv4G1O80Me' // This is your Javascript key
+            );
+            let demo = document.getElementById("demo");
+            let inputTarefa = document.getElementById("tarefa");
+            let exp = document.getElementById("exp");
+            let listaTarefas = document.getElementById("tarefas");
+            let cbTarefasAFazer = document.getElementById("cbTarefasAFazer");
+
+            let tarefas;
+            let tarefasAFazer = false;
+
+            const adicionarTarefa = async() => {
+                let tarefa = inputTarefa.value.trim();
+                if (!tarefa) {
+                    alert("Digite uma tarefa!");
+                    return;
+                }
+                const novaTarefa = new Parse.Object("Tarefa");
+                novaTarefa.set("Certificados", tarefa);
+                try {
+                    const result = await novaTarefa.save();
+                    inputTarefa.value = "";
+                    inputTarefa.focus();
+                    console.log("Tarefa criada", result);
+                    consultarTarefas();
+                } catch (error) {
+                    console.error("Error ao criar Tarefa: ", error);
+                }
+            };
+
+            const consultarTarefas = async() => {
+                const Tarefa = Parse.Object.extend("Tarefa");
+                const query = new Parse.Query(Tarefa);
+                if (tarefasAFazer) {
+                    query.equalTo("feita", false);
+                }
+                listaTarefas.innerHTML = "";
+                try {
+                    tarefas = await query.find();
+                    console.log("tarefas", tarefas);
+                    for (let i = 0; i < tarefas.length; ++i) {
+                        const Certificados = tarefas[i].get("Certificados");
+                        const feita = tarefas[i].get("feita");
+                        console.log("feita", feita);
+                        listaTarefas.innerHTML += `<li>${Certificados}</li>`;
+                    }
+                } catch (error) {
+                    console.error("Error while fetching Tarefa", error);
+                }
+            };
+
+            const handleRemoverTarefa = async(indice) => {
+                try {
+                    await tarefas[indice].destroy();
+                    consultarTarefas();
+                } catch (error) {
+                    alert("Erro ao remover a tarefa: " + error.message);
+                }
+            };
+
+            const handleChangeTarefasAFazer = () => {
+                tarefasAFazer = cbTarefasAFazer.checked;
+                consultarTarefas();
+            };
+            consultarTarefas();
+        </script>
+
+
+</body>
+
+</html>
